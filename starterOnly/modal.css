@@ -152,6 +152,9 @@ main {
 .button:hover {
   background: #3876ac;
 }
+.button :disabled, .button[disabled]{
+  background:blue;
+}
 
 .smFont {
   font-size: 16px;
@@ -167,6 +170,7 @@ main {
   width: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
+ 
 }
 
 .content {
@@ -175,7 +179,8 @@ main {
   max-width: 500px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
-  background: #232323;
+  /* background: #232323; */
+  background:red;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
