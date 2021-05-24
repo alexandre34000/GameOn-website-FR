@@ -161,7 +161,7 @@ function toKnowRadioBoxChecked(items) {
 function toKnowValidityOfCheckbox(items) {
   var checkBoxItem = items.filter((f) => f.name == "checkbox");
   var checkBox1 = frm.elements["checkbox"];
-  var checkBox2 = frm.elemnts["checkbox"];
+  var checkBox2 = frm.elements["checkbox"];
   if (checkBox1.checked == false) {
     toDisplayMessage("checkBox2", false);
     checkBox1.onchange = function () {
@@ -199,3 +199,11 @@ function toDisplayMessage(id, state) {
     currentDiv.parentNode.insertBefore(warningBox, currentDiv.nextSibling);
   }
 }
+
+/* object = {firstname: 'abd', lastname:'tm', age:16, school:'insat'};
+
+keys = ['firstname', 'age'];
+ensuite :
+
+keys.reduce((result, key) => ({ ...result, [key]: object[key] }), {}); */
+// {firstname:'abd', age: 16}

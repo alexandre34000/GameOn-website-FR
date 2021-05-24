@@ -6,7 +6,7 @@
   <title>Reservation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="modal.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
 </head>
 
@@ -30,54 +30,50 @@
     <div class="hero-section">
       <div class="hero-content">
         <h1 class="hero-headline">
-          Marathon national<br>
+          Marathon national<br />
           de jeux vidéos
         </h1>
         <p class="hero-text">
-          Vous aimez jouer ? Notre prochain évènement gaming est ouvert
-          aux réservations... Places limitées !
+          Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux
+          réservations... Places limitées !
         </p>
-        <button class="btn-signup modal-btn">
-          je m'inscris
-        </button>
+        <button class="btn-signup modal-btn">je m'inscris</button>
       </div>
       <div class="hero-img">
         <img src="./bg_img.jpg" alt="img" />
       </div>
-      <button class="btn-signup modal-btn">
-        je m'inscris
-      </button>
+      <button class="btn-signup modal-btn">je m'inscris</button>
     </div>
 
     <div class="bground">
       <div class="content">
         <span class="close"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate(this);">
+          <form name="reserve" id="reserve" action="index.html" method="get" onsubmit="return validate(this);">
             <div class="formData">
-              <label for="first">Prénom</label><br>
+              <label for="first">Prénom</label><br />
               <input class="text-control" type="text" id="first" name="first" minlength="2" autocomplete="given-name"
-                required autofocus /><br>
+                autofocus /><br />
             </div>
             <div class="formData">
-              <label for="last">Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" required autocomplete="family-name" /><br>
+              <label for="last">Nom</label><br />
+              <input class="text-control" type="text" id="last" name="last" autocomplete="family-name" /><br />
             </div>
             <div class="formData">
-              <label for="email">E-mail</label><br>
-              <input class="text-control" type="email" id="email" name="email" required autocomplete="email" /><br>
+              <label for="email">E-mail</label><br />
+              <input class="text-control" type="email" id="email" name="email" autocomplete="email" /><br />
             </div>
             <div class="formData">
-              <label for="birthdate">Date de naissance</label><br>
-              <input class="text-control" type="date" id="birthdate" name="birthdate" required autocomplete="bday" /><br>
+              <label for="birthdate">Date de naissance</label><br />
+              <input class="text-control" type="date" id="birthdate" name="birthdate" autocomplete="bday" /><br />
             </div>
             <div class="formData">
-              <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required
-               />
+              <label for="quantity">À combien de tournois GameOn avez-vous déjà participé
+                ?</label><br />
+              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" />
             </div>
             <p class="text-label">Quelles villes ?</p>
-            <div class="formData">
+            <div class="formData" id="radioBox" name="radioBox" value="">
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
@@ -104,30 +100,53 @@
                 Portland</label>
             </div>
 
-            <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" name="checkbox"  />
+            <div class="formData" id="checkbox">
+              <input class="checkbox-input" type="checkbox" id="checkbox1" name="checkbox" />
               <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
-              <br>
+              <br />
               <input class="checkbox-input" type="checkbox" id="checkbox2" name="checkbox" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
                 Je Je souhaite être prévenu des prochains évènements.
               </label>
-              <br>
+              <br />
             </div>
-            <input class="btn-submit button" type="submit" id="submit" value="C'est parti" />
+            <div class="formData">
+              <input class="btn-submit button" name="btnSubmit" type="submit" id="submit" value="C'est parti" />
+            </div>
           </form>
+
+          <div class="validMsgBox">
+            <div class="contentValidMsg">
+              <div class="validMessage" id="idValidMessage">
+               <!--  Thanks you for submitting your registration details -->
+              </div>
+            </div>
+            <div class="btnclose">
+              <input class="btn-submit button" name="btnSubmit" type="submit" id="submit" value="Close"
+                onclick="closeModal()" />
+            </div>
+
+          </div>
+
         </div>
+
+        <!-- <div class="validMsgBox">
+          <div class="contentValidMsg">
+            <div class="validMessage">
+              Thanks you for submitting your registration details
+            </div>
+          </div>
+        </div> -->
+
       </div>
     </div>
   </main>
   <footer>
-    <p class="copyrights">
-      Copyright 2014 - 2020, GameOn Inc.
-    </p>
+    <p class="copyrights">Copyright 2014 - 2020, GameOn Inc.</p>
   </footer>
   <script src="modal.js"></script>
 </body>
