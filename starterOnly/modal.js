@@ -12,11 +12,12 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const submitBtn = document.getElementById("submit");
-const modalValidMsg = document.querySelector(".validMsgBox");
+const modalValidMsgBox = document.querySelector(".validMsgBox");
 const modalBtnClose = document.querySelectorAll(".close");
 const modalBody = document.querySelector(".modal-body");
 const form = document.querySelector("#reserve");
-const messageServer = document.querySelector("#idValidMessage")
+const messageServer = document.querySelector("#idValidMessage");
+
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -54,21 +55,20 @@ function validate(frm) {
 
 const simulResponseServeur = () => {
   return new Promise(resolve => {
-    setTimeout(() => { resolve(200); }, 3000);
+    setTimeout(() => { resolve("200"); }, 1000);
   });
 }
 
 async function sendData() {
-  form.style.visibility ="hidden";
-  // displaySpinner();
+  form.style.opacity = 0;
   let response = await simulResponseServeur();
-  if (response == 200) {
+  if (response == "200") {
     messageServer.innerHTML =" Thanks you for submitting your registration details"
   }
   else {
     messageServer.innerHTML =" We have a probleme Houston !! please try again !"
   }
-  modalValidMsg.style.display = "block";
+  modalValidMsgBox.style.display = "block";
 }
 
 const displayErrorMessage = (key, value) => {
@@ -89,15 +89,16 @@ const displayErrorMessage = (key, value) => {
 
 const toAddListener = (key, value) => {
   let id = document.getElementById(key);
-  id.addEventListener("input", function (e) {
+  id.addEventListener("input", function valideConstrainst(e) {
     var errorMsg = valide(id, formConstraints[key]);
     if (errorMsg == "") {
-      toRemoveItem(key);
+      id.removeEventListener("input", valideConstrainst);
+      toRemoveMsgError(key);
     }
   });
 }
 
-const toRemoveItem = (key) => {
+const toRemoveMsgError = (key) => {
   let parent;
   if (key === "radioBox") {
     parent = document.getElementById(key);
