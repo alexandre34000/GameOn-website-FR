@@ -64,10 +64,10 @@ async function sendData() {
   loadingSpinner.style.display = "block";
   let response = await simulResponseServeur();
   if (response == "200") {
-    messageServer.innerHTML =" Thanks you for submitting your registration details"
+    messageServer.innerHTML = " Thanks you for submitting your registration details"
   }
   else {
-    messageServer.innerHTML =" We have a probleme Houston !! please try again !"
+    messageServer.innerHTML = " We have a probleme Houston !! please try again !"
   }
   loadingSpinner.style.display = "none";
   modalValidMsgBox.style.display = "block";
@@ -126,7 +126,7 @@ const valide = (element, validators) => {
 const validators = {
   minLength: (expectedMinLength) => (element) => {
     if (element.value.trim().length < expectedMinLength) {
-      return `pas assez de lettre ${expectedMinLength}`;
+      return ` ${expectedMinLength} lettres au minimum `;
     }
   },
   email: (element) => {
@@ -144,19 +144,19 @@ const validators = {
   tournois: (element) => {
     var reg = /[0-99]{1,}$/;
     if (!reg.test(element.value)) {
-      return 'mauvais nombres'
+      return 'Le nombre doit etre compris entre 0 et 99';
     }
   },
   radioBox: (element) => {
     const radioBtnChecked = Array.from(element.children)
       .find(radio => radio.checked);
     if (!radioBtnChecked) {
-      return `une case doit etre cochées `
+      return 'une case doit etre cochées';
     }
   },
   checkBox: (element) => {
     if (!element.checked) {
-      return 'les conditions doivent etre cochées'
+      return 'la case des conditions doit etre cochée'
     }
   }
 };
@@ -181,7 +181,7 @@ function toCheckErrors() {
     radioBox: valide(document.getElementById("radioBox"), formConstraints.radioBox),
     checkbox1: valide(document.getElementById("checkbox1"), formConstraints.checkbox1),
   }
- // Select only the error by filter if message exist
+  // Select only the error by filter if message exist
   const removeEmptyValues = (obj) => {
     return Object.fromEntries(Object.entries(obj).filter(([k, v]) => v != ""));
   }
