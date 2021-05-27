@@ -87,6 +87,7 @@ const displayErrorMessage = (key, value) => {
     currentDiv = document.getElementById(key).parentElement;
   }
   currentDiv.append(warningBox);
+  currentDiv.setAttribute('data-error', 'true');
 }
 
 const toAddListener = (key, value) => {
@@ -108,6 +109,7 @@ const toRemoveMsgError = (key) => {
     parent = document.getElementById(key).parentElement;
   }
   parent.removeChild(parent.lastElementChild);
+  parent.setAttribute('data-error', 'false');
   checkMsgWarningInDom();
 }
 
