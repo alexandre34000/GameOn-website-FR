@@ -48,7 +48,7 @@ function validate(frm) {
     });
   }
   else {
-    sendData();
+    simulSendData();
   }
   return false;
 }
@@ -59,7 +59,7 @@ const simulResponseServeur = () => {
   });
 }
 
-async function sendData() {
+async function simulSendData() {
   form.style.opacity = 0;
   loadingSpinner.style.display = "block";
   let response = await simulResponseServeur();
@@ -134,13 +134,13 @@ const validators = {
   email: (element) => {
     var reg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (!reg.test(element.value)) {
-      return 'email non conforme';
+      return 'Email non conforme';
     }
   },
   date: (element) => {
     var reg = /^\d{4}-\d{2}-\d{2}$/;
     if (!reg.test(element.value)) {
-      return 'mauvaise date';
+      return 'Mauvaise date';
     }
   },
   tournois: (element) => {
@@ -153,12 +153,12 @@ const validators = {
     const radioBtnChecked = Array.from(element.children)
       .find(radio => radio.checked);
     if (!radioBtnChecked) {
-      return 'une case doit etre cochées';
+      return 'Une case doit etre cochées';
     }
   },
   checkBox: (element) => {
     if (!element.checked) {
-      return 'la case des conditions doit etre cochée'
+      return 'La case des conditions doit être cochée'
     }
   }
 };
